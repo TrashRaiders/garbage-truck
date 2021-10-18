@@ -139,6 +139,53 @@ func (x *Shop) GetWebsite() string {
 	return ""
 }
 
+type ShopRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ShoId string `protobuf:"bytes,1,opt,name=sho_id,json=shoId,proto3" json:"sho_id,omitempty"`
+}
+
+func (x *ShopRequest) Reset() {
+	*x = ShopRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protos_shop_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ShopRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShopRequest) ProtoMessage() {}
+
+func (x *ShopRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_shop_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShopRequest.ProtoReflect.Descriptor instead.
+func (*ShopRequest) Descriptor() ([]byte, []int) {
+	return file_protos_shop_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ShopRequest) GetShoId() string {
+	if x != nil {
+		return x.ShoId
+	}
+	return ""
+}
+
 var File_protos_shop_proto protoreflect.FileDescriptor
 
 var file_protos_shop_proto_rawDesc = []byte{
@@ -167,8 +214,11 @@ var file_protos_shop_proto_rawDesc = []byte{
 	0x61, 0x63, 0x74, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x61, 0x63, 0x74, 0x12, 0x12, 0x0a, 0x04,
 	0x74, 0x61, 0x67, 0x73, 0x18, 0x09, 0x20, 0x03, 0x28, 0x09, 0x52, 0x04, 0x74, 0x61, 0x67, 0x73,
 	0x12, 0x18, 0x0a, 0x07, 0x77, 0x65, 0x62, 0x73, 0x69, 0x74, 0x65, 0x18, 0x0a, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x07, 0x77, 0x65, 0x62, 0x73, 0x69, 0x74, 0x65, 0x42, 0x0c, 0x5a, 0x0a, 0x70, 0x6b,
-	0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x09, 0x52, 0x07, 0x77, 0x65, 0x62, 0x73, 0x69, 0x74, 0x65, 0x22, 0x24, 0x0a, 0x0b, 0x53, 0x68,
+	0x6f, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x15, 0x0a, 0x06, 0x73, 0x68, 0x6f,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x73, 0x68, 0x6f, 0x49, 0x64,
+	0x42, 0x0c, 0x5a, 0x0a, 0x70, 0x6b, 0x67, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -183,17 +233,18 @@ func file_protos_shop_proto_rawDescGZIP() []byte {
 	return file_protos_shop_proto_rawDescData
 }
 
-var file_protos_shop_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_protos_shop_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_protos_shop_proto_goTypes = []interface{}{
 	(*Shop)(nil),        // 0: protos.Shop
-	(*Address)(nil),     // 1: protos.Address
-	(*Coordinates)(nil), // 2: protos.Coordinates
-	(*Contact)(nil),     // 3: protos.Contact
+	(*ShopRequest)(nil), // 1: protos.ShopRequest
+	(*Address)(nil),     // 2: protos.Address
+	(*Coordinates)(nil), // 3: protos.Coordinates
+	(*Contact)(nil),     // 4: protos.Contact
 }
 var file_protos_shop_proto_depIdxs = []int32{
-	1, // 0: protos.Shop.address:type_name -> protos.Address
-	2, // 1: protos.Shop.coordinates:type_name -> protos.Coordinates
-	3, // 2: protos.Shop.contact:type_name -> protos.Contact
+	2, // 0: protos.Shop.address:type_name -> protos.Address
+	3, // 1: protos.Shop.coordinates:type_name -> protos.Coordinates
+	4, // 2: protos.Shop.contact:type_name -> protos.Contact
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -222,6 +273,18 @@ func file_protos_shop_proto_init() {
 				return nil
 			}
 		}
+		file_protos_shop_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ShopRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -229,7 +292,7 @@ func file_protos_shop_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_protos_shop_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
