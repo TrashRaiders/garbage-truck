@@ -133,5 +133,5 @@ var ShopService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "protos/api.proto",
+	Metadata: "api.proto",
 }
