@@ -1,0 +1,21 @@
+{
+  "extends": ["config:base"],
+  "labels": ["dependencies", "code-quality"],
+  "baseBranches": ["bump"],
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": true,
+  "dependencyDashboardAutoclose": false,
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["@raphaelzoellner"]
+  }
+}
